@@ -1,0 +1,26 @@
+{% extends "base_login.html" %}
+{% load staticfiles %}
+{% block title %}Log-in{% endblock %}
+{% block stylesheet %}<link rel="stylesheet" href="{% static "css/login.css" %}">{% endblock %}
+
+
+{% block content %}
+
+
+		<form action="{% url 'login' %}" method="post" class="form-signin">
+      <!-- {{form.as_p}} -->
+      {% csrf_token %}
+			<h2 class="form-signin-heading">Enter Your Details</h2>
+			<label for="username" class="sr-only">Username :</label>
+			<input type="text" name="username" id="username" class="form-control" placeholder="Username" required autofocus>
+
+			<br>
+			<label for="password" class="sr-only">Password :</label>
+			<input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
+      <input type="hidden" name="next" value="{{ next }}">
+			<br>
+			<button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+
+		</form>
+
+{% endblock %}

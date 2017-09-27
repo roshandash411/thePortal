@@ -1,0 +1,52 @@
+@import url(http://fonts.googleapis.com/css?family=Muli);
+.blocks {
+  padding: 10px 10px 10px;
+  font-size:25px;
+  background:#F0F0F0;
+  color:#000000;
+  border:5px solid #FFFFFF;
+  overflow:auto;
+}
+.body {
+  background: #FF0000;
+}
+
+#author {
+  font-size: 15px;
+  /*padding: 10px 10px 20px 1px;
+  border: 1px solid #000000;
+  overflow:auto;*/
+}
+
+#created {
+  font-size: 15px;
+}
+
+#header {
+    padding:10px 100px;
+    font-size:20px;
+    background:#000000;
+    color:#fff;
+    border-bottom:4px solid #00FF00;
+    overflow:auto;
+}
+
+#header .logo {
+    font-family: 'Muli', sans-serif;
+    float:left;
+    color:#f3f7cc;
+    font-size:20px;
+    margin-right:10%;
+}
+
+#header a {
+    color:#f3f7cc;
+}
+#header a:hover {
+    color:#fff;
+}
+
+#header .user {
+    float:right;
+    padding-top:4px;
+}
