@@ -4,15 +4,42 @@
   font-size:25px;
   background:#F0F0F0;
   color:#000000;
-  border:5px solid #FFFFFF;
+  border-bottom:5px solid #FFFFFF;
   overflow:auto;
 }
 .body {
   background: #FF0000;
 }
 
+.post {
+  font-size: 18px;
+  text-align: center;
+  background: #FFFFFF;
+}
+
+.title {
+  text-align: center;
+}
+
+.com {
+  padding: 10px 10px 10px;
+  text-align: center;
+  font-size:25px;
+  background:#A0A0A0;
+  color:#000000;
+  border-bottom:5px solid #FFFFFF;
+  overflow:auto;
+}
+
+.form1 {
+  text-align: center;
+}
+
 #author {
   font-size: 15px;
+  margin-right: 0px;
+  width: 60px;
+  margin-left: auto;
   /*padding: 10px 10px 20px 1px;
   border: 1px solid #000000;
   overflow:auto;*/
@@ -20,6 +47,9 @@
 
 #created {
   font-size: 15px;
+  margin-right: 0px;
+  width: 180px;
+  margin-left: auto;
 }
 
 #header {

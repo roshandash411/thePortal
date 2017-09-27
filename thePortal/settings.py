@@ -26,7 +26,7 @@ SECRET_KEY = 'qxl_p6c(5s5&8@thq9h9=b3zsl-w##^0$1=iaqk!q1(ui5(2&1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.scibolt.com']
+ALLOWED_HOSTS = ['www.scibolt.com', '127.0.0.1']
 
 
 # Application definition

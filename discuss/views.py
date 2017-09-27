@@ -7,15 +7,19 @@ from .models import Posts, Category, Comment
 
 @login_required
 def home(request):
-    posts = Posts.objects;
-    category = Category.objects.all();
-    comment = Comment.objects.all();
+    posts = Posts.objects
+    category = Category.objects.all()
+    comment = Comment.objects.all()
     return render(request, 'discuss/home.html', {'posts': posts, 'category' : category, 'comment':comment, 'section': 'home'})
 
 @login_required
 def post(request, categoryss, postss):
-    return render(request, 'discuss/post.html')
+    posts = Posts.objects.filter(title=postss)[0]
+    comment = Comment.objects.all()
+    return render(request, 'discuss/post.html', {'posts': posts, 'comment': comment})
 
 @login_required
 def category(request, categoryss):
-    return render(request, 'discuss/category.html')
+    categorys = Category.objects.filter(category=categoryss)[0]
+    category = Category.objects.all()
+    return render(request, 'discuss/category.html', {'categorys' : categorys, 'category' : category})

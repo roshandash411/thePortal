@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}{{posts}}{% endblock %}
+{% block stylesheet %}<link href="{% static "css/home.css" %}" rel="stylesheet">{% endblock %}
+{% block content %}
+<br><br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 blocks">
+      <div class="title">
+        {{posts}}
+      </div>
+
+      <div id="created">
+          -{{posts.created}}
+      </div>
+
+        <div id="author">
+            -{{posts.creator}}
+        </div>
+
+        <div class="col-xs-8 col-xs-offset-2 post">
+          {{posts.post}}
+        </div>
+    </div>
+  </div>
+  {% for x in posts.comments.all %}
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 com">
+      {{x}}
+      <div id="created">
+          -{{x.created}}
+      </div>
+
+        <div id="author">
+            -{{x.creator}}
+        </div>
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

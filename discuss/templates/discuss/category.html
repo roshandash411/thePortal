@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}{{categorys}}{% endblock %}
+{% block stylesheet %}<link href="{% static "css/home.css" %}" rel="stylesheet">{% endblock %}
+{% block content %}
+<br><br><br><br>
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 form1">
+     <form action="." method="post">
+       {% csrf_token %}
+      <select name="sel_cat">
+        {% for cat in category %}
+        <option value="{{cat}}">{{cat}}</option>
+        {% endfor %}
+      </select>
+      <button type = "button" class = "btn btn-primary">Category</button>
+    </form>
+    </div>
+  </div>
+  <br>
+  {% for x in categorys.posts.all %}
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 blocks">
+      <a href="{% url "post" categoryss=categorys postss=x %}">{{x}}</a>
+      <div id="created">
+          -{{x.created}}
+      </div>
+        <div id="author">
+            -{{x.creator}}
+        </div>
+
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -12,7 +12,7 @@ class Category(models.Model):
 
 class Posts(models.Model):
     title = models.CharField(max_length=60)
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, related_name='posts')
     post = models.TextField(max_length=10000)
     creator = models.ForeignKey(User)
     created = models.DateTimeField(auto_now_add=True)
