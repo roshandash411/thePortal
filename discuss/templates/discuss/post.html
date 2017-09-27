@@ -24,10 +24,24 @@
         </div>
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 new_post">
+      <form action="{% url "new_comment" categoryss=categorys postss=posts %}" method="post">
+        {% csrf_token %}
+        <input type="text" id="comment" name="comment" class="form-group "placeholder="Comment">
+        <br>
+        <button type = "submit" class = "btn btn-primary form-group">Submit</button>
+
+      </form>
+    </div>
+  </div>
   {% for x in posts.comments.all %}
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2 com">
       {{x}}
+      {% if user == x.creator %}
+      <span id="delete"><a href="{% url "delete_comment" ids=x.id %}">DELETE</a></span>
+      {% endif %}
       <div id="created">
           -{{x.created}}
       </div>

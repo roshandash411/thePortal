@@ -1,10 +1,12 @@
 from django import forms
-from .models import Comment
-
-class CategoryForm(forms.Form):
-    category_f = forms.CharField(max_length=100)
+from .models import Comment, Posts
 
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = {'creator', 'comment'}
+        fields = {'comment'}
+
+class PostForm(forms.ModelForm):
+    class Meta:
+        model = Posts
+        fields = {'title', 'post'}

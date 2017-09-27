@@ -24,10 +24,25 @@
     </div>
   </div>
   <br>
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 new_post">
+      <form action="{% url "new_post" categoryss=categorys %}" method="post" id="lol">
+        {% csrf_token %}
+        <input type="text" id="title" name="title" class="form-group" placeholder="Title">
+        <button type = "submit" class = "btn btn-primary form-group">Submit</button>
+        <br>
+        <input type="text" id="post" name="post" class="form-group "placeholder="Post">
+
+      </form>
+    </div>
+  </div>
   {% for x in categorys.posts.all %}
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2 blocks">
       <a href="{% url "post" categoryss=categorys postss=x %}">{{x}}</a>
+      {% if user == x.creator %}
+      <span id="delete"><a href="{% url "delete_post" ids=x.id %}">DELETE</a></span>
+      {% endif %}
       <div id="created">
           -{{x.created}}
       </div>
