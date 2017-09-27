@@ -3,12 +3,23 @@
 {% block title %}{{posts}}{% endblock %}
 {% block stylesheet %}<link href="{% static "css/home.css" %}" rel="stylesheet">{% endblock %}
 {% block content %}
-<br><br><br><br>
+<br>
 <div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 form1">
+      <div class="form_cat">
+        <h1>{{posts.category}}</h1>
+      </div>
+    </div>
+  </div>
+  <br>
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2 blocks">
       <div class="title">
         {{posts}}
+        {% if user == posts.creator %}
+        <span id="delete"><a href="{% url "delete_post" ids=posts.id %}">DELETE</a></span>
+        {% endif %}
       </div>
 
       <div id="created">

@@ -3,6 +3,7 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
+    url(r'^search/', views.search, name = 'search'),
     url(r'^delete_post/(?P<ids>[\d]+)/', views.delete_post, name = 'delete_post'),
     url(r'^delete_comment/(?P<ids>[\d]+)/', views.delete_comment, name = 'delete_comment'),
     url(r'^(?P<categoryss>[-\w]+)/new_post', views.new_post, name = 'new_post'),

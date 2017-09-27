@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Search{% endblock %}
+{% block stylesheet %}<link href="{% static "css/home.css" %}" rel="stylesheet">{% endblock %}
+{% block content %}
+<br>
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 form1">
+      <div class="form_cat">
+        <h1>{{search}}</h1>
+      </div>
+      <br>
+    </div>
+  </div>
+  <br>
+  {% for x in posts %}
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2 blocks">
+      <a href="{% url "post" categoryss=x.category postss=x %}">{{x}}</a>
+      <div id="created">
+          -{{x.created}}
+      </div>
+        <div id="author">
+            -{{x.creator}}
+        </div>
+
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

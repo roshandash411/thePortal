@@ -72,3 +72,9 @@ def delete_comment(request, ids):
     categoryss = post.category
     lel.delete()
     return HttpResponseRedirect(reverse('post', kwargs={'categoryss': categoryss, 'postss': post}))
+
+@login_required
+def search(request):
+    lol = request.POST.get('searcha')
+    posts = Posts.objects.filter(post__icontains=lol).all()
+    return render(request, 'discuss/search.html', {'posts': posts, 'search':lol})
