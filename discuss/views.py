@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import Posts, Category, Comment
+from django.urls import reverse
 
 # Create your views here.
 
@@ -22,4 +23,13 @@ def post(request, categoryss, postss):
 def category(request, categoryss):
     categorys = Category.objects.filter(category=categoryss)[0]
     category = Category.objects.all()
+    if request.method == 'POST':
+        categorys = request.POST['sel_cat']
+        return HttpResponseRedirect(reverse('category', kwargs={'categoryss': categorys}))
+
     return render(request, 'discuss/category.html', {'categorys' : categorys, 'category' : category})
+
+@login_required
+def defa(request):
+    category = Category.objects.all()[0]
+    return HttpResponseRedirect(reverse('category', kwargs={'categoryss': category}))

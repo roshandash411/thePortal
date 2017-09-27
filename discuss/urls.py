@@ -5,5 +5,5 @@ from . import views
 urlpatterns = [
     url(r'^(?P<categoryss>[-\w]+)/(?P<postss>[-\w]+)', views.post, name = 'post'),
     url(r'^(?P<categoryss>[-\w]+)/', views.category, name = 'category'),
-    url(r'^$', views.home, name = 'home'),
+    url(r'^$', views.defa, name = 'defa'),
 ]

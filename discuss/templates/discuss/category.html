@@ -3,19 +3,23 @@
 {% block title %}{{categorys}}{% endblock %}
 {% block stylesheet %}<link href="{% static "css/home.css" %}" rel="stylesheet">{% endblock %}
 {% block content %}
-<br><br><br><br>
+<br>
 <div class="container">
 
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2 form1">
-     <form action="." method="post">
+      <div class="form_cat">
+        <h1>{{categorys}}</h1>
+      </div>
+      <br>
+     <form action="#" method="post">
        {% csrf_token %}
       <select name="sel_cat">
         {% for cat in category %}
         <option value="{{cat}}">{{cat}}</option>
         {% endfor %}
       </select>
-      <button type = "button" class = "btn btn-primary">Category</button>
+      <button type = "submit" class = "btn btn-primary">Category</button>
     </form>
     </div>
   </div>
